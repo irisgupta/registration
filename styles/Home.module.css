@@ -1,128 +1,27 @@
-.container {
-  padding: 0 2rem;
+.header {
+  margin-left: 100px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
-.main {
-  min-height: 100vh;
-  padding: 4rem 0;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.caption {
+  font-size: 15px;
+  padding-left: 37px;
 }
 
-.footer {
-  display: flex;
-  flex: 1;
-  padding: 2rem 0;
-  border-top: 1px solid #eaeaea;
-  justify-content: center;
-  align-items: center;
-}
-
-.footer a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
-}
-
-.title a {
-  color: #0070f3;
-  text-decoration: none;
-}
-
-.title a:hover,
-.title a:focus,
-.title a:active {
-  text-decoration: underline;
-}
-
-.title {
-  margin: 0;
-  line-height: 1.15;
-  font-size: 4rem;
-}
-
-.title,
-.description {
-  text-align: center;
-}
-
-.description {
-  margin: 4rem 0;
-  line-height: 1.5;
-  font-size: 1.5rem;
-}
-
-.code {
-  background: #fafafa;
-  border-radius: 5px;
-  padding: 0.75rem;
-  font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
-}
-
-.grid {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  max-width: 800px;
-}
-
-.card {
-  margin: 1rem;
-  padding: 1.5rem;
-  text-align: left;
-  color: inherit;
-  text-decoration: none;
-  border: 1px solid #eaeaea;
-  border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
-  max-width: 300px;
-}
-
-.card:hover,
-.card:focus,
-.card:active {
-  color: #0070f3;
-  border-color: #0070f3;
-}
-
-.card h2 {
-  margin: 0 0 1rem 0;
-  font-size: 1.5rem;
-}
-
-.card p {
-  margin: 0;
-  font-size: 1.25rem;
-  line-height: 1.5;
-}
-
-.logo {
-  height: 1em;
-  margin-left: 0.5rem;
-}
-
-@media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
-  }
+.questions {
+  font-size: 22px;
+  padding-left: 730px;
+  padding-bottom: 40px;
+  padding-top: 30px;
 }
 
 .track {
   background: linear-gradient(270deg, rgba(12, 139, 210, 0.78) 0%, rgba(186, 0, 0, 0.83) 100%);
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
+  margin-left: 600px;
+  width: 45%;
   height: 30px;
-  width: 50%;
 }
 
 .thumb {
@@ -133,32 +32,25 @@
 
 .options {
   text-align: center;
+  margin-left: 500px;
+  margin-right: 183px;
 }
 
 .options li{
   list-style-type: none;
   display: inline-block;
-  width: 9.75%;
+  width: 16%;
   font-size: 13px;
 }
 
-.row {
-  padding-top: 35px;
-  padding-bottom: 35px;
-  display: flex;
-  flex-wrap: wrap;
+.image {
+  float: left;
+  padding: 0 20px 20px 0;
+  margin-left: 100px;
 }
 
-.column1 {
-  flex: auto;
-  max-width: 50%;
-  padding-left: 450px;
-}
-
-.column2 {
-  flex: auto;
-  max-width: 50%;
-  padding-right: 450px;
+.border {
+  border: 2px solid black;
 }
 
 .btn {
@@ -167,10 +59,34 @@
   padding: 8px 0;
   margin: 20px auto;
   position: absolute;
-  right: 200px;
+  right: 170px;
+  bottom: 70px;
   background: linear-gradient(180deg, #6FA0E9 0%, rgba(78, 122, 187, 0.43) 123.65%);
   color: black;
   text-align: center;
   border-radius: 10px;
   border:1px solid black;
+  margin-bottom: 10px;
+}
+
+.buttonsContainer {
+  text-align: center;
+  margin-left: 530px;
+  margin-right: 283px;
+}
+
+.buttons{
+  list-style-type: none;
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  margin-left: 105px;
+  background: white;
+  border-radius: 20px;
+  border:1px solid black;
+}
+
+.buttons:focus {
+  background-color: gray;
+  border: 1px solid white;
 }

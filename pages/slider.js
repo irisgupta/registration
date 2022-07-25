@@ -32,13 +32,15 @@ export default class Slider extends React.Component {
           />
         )}
       />
-      <ul class={styles.options}>
-        <li>Strong reject</li>
-        <li>Moderate reject</li>
-        <li>Mild reject</li>
-        <li>Mild accept</li>
-        <li>Moderate accept</li>
-        <li>Strong accept</li>
+      <ul>
+        <div className={styles.options}>
+          <li>Strong reject</li>
+          <li>Moderate reject</li>
+          <li>Mild reject</li>
+          <li>Mild accept</li>
+          <li>Moderate accept</li>
+          <li>Strong accept</li>
+        </div>
       </ul>
       </>
     );
