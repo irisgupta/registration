@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Range } from 'react-range';
-import styles from '../styles/Home.module.css'
+import styles from '../styles/experiment.module.css'
+  
   
 export default class Slider extends React.Component {
   state = { values: [50] };

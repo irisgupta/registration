@@ -1,5 +1,5 @@
 {
-  "name": "jasmine-project",
+  "name": "registration-assessment",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,14 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@emotion/react": "^11.9.3",
-    "@emotion/styled": "^11.9.3",
-    "@mui/material": "^5.9.0",
+    "antd": "^4.21.7",
+    "axios": "^0.27.2",
+    "firebase": "^9.9.1",
+    "firebase-admin": "^11.0.0",
     "next": "12.2.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-range": "^1.8.13",
-    "react-slider": "^2.0.1"
+    "react-range": "^1.8.14",
+    "react-redux": "^8.0.2",
+    "redux": "^4.2.0"
   },
   "devDependencies": {
     "eslint": "8.20.0",

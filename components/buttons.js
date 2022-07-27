@@ -1,4 +1,4 @@
-import styles from '../styles/Home.module.css'
+import styles from '../styles/experiment.module.css'
 import React from 'react';
 
 export default function Buttons() {
@@ -17,7 +17,7 @@ export default function Buttons() {
           <button className={styles.buttons} id="four" onClick={storeButtonValue}></button>
           <button className={styles.buttons} id="five" onClick={storeButtonValue}></button>
         </div>
-        <script>alert(buttonValue)</script>
+        {/* <script>alert(buttonValue)</script> */}
         <ul>
           <div className={styles.options}>
             <li>Not at all</li>
