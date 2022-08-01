@@ -50,8 +50,7 @@ export default function Home() {
             <label htmlFor="agree"> I agree to the <b>terms and conditions</b></label>
         </div>
 
-      <Link
-      href= "/instruction" passHref>
+      <Link href= "/instruction" passHref>
         <Button disabled={!agree} component="a">
           Continue
         </Button>

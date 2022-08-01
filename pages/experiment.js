@@ -8,13 +8,7 @@ import Buttons from '../components/buttons.js'
 import React, { useEffect, useState } from "react";
 
 
-
-
 export default function Experiment() {
-
-    // const [assess, setAssess] = useState(false);
-    // const [confidence, setConfidence] = useState(false);
-    // const [done, setDone] = useState(false);
 
     const [count, setCount] = useState(0);
     const [captionText, setCaptionText] = useState('Click on image to see registration result');
@@ -33,29 +27,18 @@ export default function Experiment() {
         console.log(count)
       }
 
-    // const assessHandler = () => {
-    // setAssess(true);
-    // console.log(assess)
-    // }
-
-    // const confidenceHandler = () => {
-    // setConfidence(true);
-    // if (count > 0 && assess){
-    //     setDone(true)
-    // }
-    // }
-
 
   return (
     <div >
      
       <h1 className={styles.header}>1/36</h1>
-      <div className={styles.image}>
+      <div className={styles.imageBox}>
         <Link href="/experiment">
-            <a onClick={() => handleClick()}><Image className={styles.border} src={imagePath} height={350} width={350}></Image></a>
+            <a onClick={() => handleClick()}><img className={styles.imageBorder} src={imagePath}></img></a>
         </Link>
         <p className={styles.caption}>{captionText}</p>
       </div>
+      
       <p className={styles.questions}>1) How would you assess this registration result?</p>
       <Slider />
       <p className={styles.questions}>2) How confident are you on your assessment?</p>

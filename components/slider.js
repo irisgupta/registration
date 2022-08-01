@@ -25,10 +25,9 @@ export default class Slider extends React.Component {
         renderThumb={({ props }) => (
           <div className= {styles.thumb}
             {...props}
-            style={{
-              ...props.style,
-              height: '30px',
-              width: '30px'
+            style={{...props.style,
+              height: '4vh',
+              width: '4vh'
             }} class = {styles.thumb}
           />
         )}

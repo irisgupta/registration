@@ -10,14 +10,23 @@ export default function Buttons() {
     return (
         
       <div>
-        <div className={styles.buttonsContainer}>
-          <button className={styles.buttons} id="one" onClick={storeButtonValue}></button>
-          <button className={styles.buttons} id="two" onClick={storeButtonValue}></button>
-          <button className={styles.buttons} id="three" onClick={storeButtonValue}></button>
-          <button className={styles.buttons} id="four" onClick={storeButtonValue}></button>
-          <button className={styles.buttons} id="five" onClick={storeButtonValue}></button>
+        <div className={styles.alignButtons}>
+          <div className={styles.buttonContainer}>
+            <button className={styles.buttons} id="one" onClick={storeButtonValue}></button>
+          </div>
+          <div className={styles.buttonContainer}>
+            <button className={styles.buttons} id="two" onClick={storeButtonValue}></button>
+          </div>
+          <div className={styles.buttonContainer}>
+            <button className={styles.buttons} id="three" onClick={storeButtonValue}></button>
+          </div>
+          <div className={styles.buttonContainer}>
+            <button className={styles.buttons} id="four" onClick={storeButtonValue}></button>
+          </div>
+          <div className={styles.buttonContainer}>
+            <button className={styles.buttons} id="five" onClick={storeButtonValue}></button>
+          </div>
         </div>
-        {/* <script>alert(buttonValue)</script> */}
         <ul>
           <div className={styles.options}>
             <li>Not at all</li>
