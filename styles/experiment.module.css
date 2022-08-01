@@ -63,8 +63,8 @@
 
 .btn {
   display: block;
-  width: 3.3%;
-  padding: 0.6vh;
+  width: 5%;
+  padding: 0.8vh 0;
   position: absolute;
   right: 7.5%;
   bottom: 6.5%;
