@@ -27,8 +27,6 @@ export default function Buttons (){
           </div>
         </div>
 
-        <div><p>Output: {confidenceScore}</p></div>
-
         <ul>
           <div className={styles.options}>
             <li>Not at all</li>
