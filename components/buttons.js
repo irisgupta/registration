@@ -1,25 +1,9 @@
 import styles from '../styles/experiment.module.css'
-import React, { useEffect, useState } from "react";
+import React, { useState } from 'react';
 
-export default function Buttons() {
-    
-    const confidenceScore = 0;
+export default function Buttons (){
 
-    const buttonOne = () => { 
-      confidenceScore=1;
-    }
-    const buttonTwo = () => { 
-      confidenceScore=2;
-    }
-    const buttonThree = () => { 
-      confidenceScore=3;
-    }
-    const buttonFour = () => { 
-      confidenceScore=4;
-    }
-    const buttonFive = () => { 
-      confidenceScore=5;
-    }
+    const [confidenceScore, setConfidenceScore] = useState(0);
 
     return (   
 
@@ -27,21 +11,24 @@ export default function Buttons() {
 
         <div className={styles.alignButtons}>
           <div className={styles.buttonContainer}>
-            <button className={styles.buttons} onClick={buttonOne}></button>
+            <button className={styles.buttons} onClick={() => setConfidenceScore(1)}></button>
           </div>
           <div className={styles.buttonContainer}>
-            <button className={styles.buttons} onClick={buttonTwo}></button>
+            <button className={styles.buttons} onClick={() => setConfidenceScore(2)}></button>
           </div>
           <div className={styles.buttonContainer}>
-            <button className={styles.buttons} onClick={buttonThree}></button>
+            <button className={styles.buttons} onClick={() => setConfidenceScore(3)}></button>
           </div>
           <div className={styles.buttonContainer}>
-            <button className={styles.buttons} onClick={buttonFour}></button>
+            <button className={styles.buttons} onClick={() => setConfidenceScore(4)}></button>
           </div>
           <div className={styles.buttonContainer}>
-            <button className={styles.buttons} onClick={buttonFive}></button>
+            <button className={styles.buttons} onClick={() => setConfidenceScore(5)}></button>
           </div>
         </div>
+
+        <div><p>Output: {confidenceScore}</p></div>
+
         <ul>
           <div className={styles.options}>
             <li>Not at all</li>

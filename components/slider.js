@@ -32,6 +32,7 @@ export default class Slider extends React.Component {
           />
         )}
       />
+
       <ul>
         <div className={styles.options}>
           <li>Strong reject</li>
