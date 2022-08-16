@@ -1,10 +1,12 @@
+import AppContext from "../components/AppContext"
+import { useContext, useState } from "react"
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 import { Button } from 'antd'
 import 'antd/dist/antd.css'
-import React, { Component, useState } from "react"
+import React, { Component } from "react"
 // import {
 //   collection,
 //   query,
@@ -19,6 +21,9 @@ import React, { Component, useState } from "react"
 export default function Home() {
 
 
+  const [value, setValue] = useState(12345)
+  const context = useContext(AppContext)
+
   const [agree, setAgree] = useState(false);
 
   const checkboxHandler = () => {
@@ -26,7 +31,7 @@ export default function Home() {
     // if agree === false, it will be set to true
     setAgree(!agree);
     // Don't miss the exclamation mark
-}
+  }
 
   return (
     <div className={styles.container}>
@@ -46,20 +51,19 @@ export default function Home() {
         </p>
 
         <div>
-           <input type="checkbox" id="agree" onChange={checkboxHandler} />
-            <label htmlFor="agree"> I agree to the <b>terms and conditions</b></label>
+          <input type="checkbox" id="agree" onChange={checkboxHandler} />
+          <label htmlFor="agree"> I agree to the <b>terms and conditions</b></label>
         </div>
 
-      <Link
-      href= "/instruction" passHref>
-        <Button disabled={!agree} component="a">
-          Continue
+        <Link href="/instruction" passHref>
+          <Button disabled={!agree} onClick={() => { context.setSession(value) }} component="a">
+            Continue
         </Button>
-      </Link>
+        </Link>
 
       </main>
 
-      
+
     </div>
   )
 }
