@@ -17,31 +17,21 @@ export default function Instruction() {
   const [agree, setAgree] = useState(false);
 
   const checkboxHandler1 = () => {
-    // if agree === true, it will be set to false
-    // if agree === false, it will be set to true
     setRule1(true);
-    // Don't miss the exclamation mark
   }
 
   const checkboxHandler2 = () => {
-    // if agree === true, it will be set to false
-    // if agree === false, it will be set to true
     setRule2(true);
-    // Don't miss the exclamation mark
   }
 
   const checkboxHandler = () => {
-    // if agree === true, it will be set to false
-    // if agree === false, it will be set to true
     if (rule1 & rule2) {
       setAgree(!agree);
     }
-    // Don't miss the exclamation mark
   }
 
   const continueChange = () => {
     setAcceptFirst(true);
-
   }
 
   return (
@@ -56,7 +46,7 @@ export default function Instruction() {
             <div className={styles.text}> Welcome to 2D/3D Registration Assessment! Your task today is to evaluate the 2D/3D registration results of the pelvis.
       </div>
 
-            <div className={styles.text}> 2D/3D Registration is ~. (Insert helpful videos/images)
+            <div className={styles.text}> 2D/3D registration, the registration between intraoperative 2D images and the appropriate 3D models, is a key technology for image-guided interventions. Once this is deployed in a clinical setting, clinicians or medical technicians will need to interpret whether a registration result given by the system is acceptable. (Insert helpful videos/images)
       </div>
 
 

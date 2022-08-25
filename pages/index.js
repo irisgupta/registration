@@ -19,9 +19,19 @@ import React, { Component } from "react"
 
 
 export default function Home() {
+  //generates random id;
+  let guid = () => {
+    let s4 = () => {
+      return Math.floor((1 + Math.random()) * 0x10000)
+        .toString(16)
+        .substring(1);
+    }
+    //return id of format 'aaaaaaaa'-'aaaa'-'aaaa'-'aaaa'-'aaaaaaaaaaaa'
+    return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+  }
 
 
-  const [value, setValue] = useState(12345)
+  const [value, setValue] = useState(guid())
   const context = useContext(AppContext)
 
   const [agree, setAgree] = useState(false);
