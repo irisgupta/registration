@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/experiment.module.css'
-import Slider from '../components/slider'
 import Buttons from '../components/buttons'
 import Link from 'next/link'
 import { Button, Radio, Checkbox, Row, Col } from 'antd'
@@ -16,7 +15,7 @@ import Assessment from '../components/assessment'
 export default function Experiment() {
 
 
-  const [allDone, setAllDone] = useState(false)
+  const [allDone, setAllDone] = useState(false)   //continue on to post study questionnaire section
 
 
   //parts

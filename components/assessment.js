@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/experiment.module.css'
-import Slider from '../components/slider'
 import Buttons from '../components/buttons'
 import Link from 'next/link'
 import { Button, Radio, Checkbox, Row, Col } from 'antd'
@@ -14,6 +13,9 @@ import Explanation from '../components/explanation'
 import { useContext } from "react"
 import AppContext from "../components/AppContext"
 import ShortSurvey from '../components/shortsurvey'
+import { Range } from 'react-range';
+
+
 
 
 
@@ -36,21 +38,15 @@ export default function Assessment({ partOrder, partInd, setPartInd, allDone, se
 
     //criteria
     const [canContinue, setCanContinue] = useState(false)   //continue on to next image
-    const [done, setDone] = useState(false);   //continue on to post study questionnaire section
-
 
     //user responses
-    const [valueAssess, setValueAssess] = useState(0.0);
+    const [valueAssess, setValueAssess] = useState([50]);
     const [valueConf, setValueConf] = useState(0);
-
-    var slider = new Slider;
 
 
     //progress
     const [readExplanation, setReadExplanation] = useState(false)
     const [finishAssess, setFinishAssess] = useState(false)
-    const [finishSurvey, setFinishSurvey] = useState(false)
-
 
 
 
@@ -76,7 +72,7 @@ export default function Assessment({ partOrder, partInd, setPartInd, allDone, se
         console.log('This is case #' + imOrderInd)
         console.log('Clickcount:' + clickcount)
         console.log('Current image:' + imagePath)
-        console.log('Slider value: ' + slider.state.values)
+        console.log('Slider value: ' + valueAssess)
         console.log('User may continue:' + canContinue)
         console.log('part:' + partOrder[partInd])
         console.log('***********************')
@@ -110,6 +106,9 @@ export default function Assessment({ partOrder, partInd, setPartInd, allDone, se
 
     }
 
+    const handleChangeSlider = (newValue) => { setValueAssess(newValue) }
+
+
 
     return (
 
@@ -139,7 +138,46 @@ export default function Assessment({ partOrder, partInd, setPartInd, allDone, se
 
                             <p className={styles.questions}>1) How would you assess this registration result?</p>
 
-                            <Slider />
+                            <>
+                                <Range
+                                    step={0.1}
+                                    min={0}
+                                    max={100}
+                                    values={valueAssess}
+                                    onChange={handleChangeSlider}
+                                    renderTrack={({ props, children }) => (
+                                        <div className={styles.track}
+                                            {...props}
+                                            style={{ ...props.style }} class={styles.track}
+                                        >
+                                            {children}
+                                        </div>
+                                    )}
+                                    renderThumb={({ props }) => (
+                                        <div className={styles.thumb}
+                                            {...props}
+                                            style={{
+                                                ...props.style,
+                                                height: '4vh',
+                                                width: '4vh'
+                                            }} class={styles.thumb}
+                                        />
+                                    )}
+                                />
+
+                                <ul>
+                                    <div className={styles.options}>
+                                        <li>Strong reject</li>
+                                        <li>Moderate reject</li>
+                                        <li>Mild reject</li>
+                                        <li>Mild accept</li>
+                                        <li>Moderate accept</li>
+                                        <li>Strong accept</li>
+                                    </div>
+                                </ul>
+
+                            </>
+
 
                             <p className={styles.questions}>2) How confident are you on your assessment?</p>
 
