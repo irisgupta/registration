@@ -61,6 +61,17 @@
   width:70vh;
 }
 
+
+.nextbutton_container {
+  display: inline-block;
+  padding: 4px 4px;
+  width: 75%;
+  margin-top: 20px;
+  margin-left: 13%;
+  
+}
+
+
 .btn {
   display: block;
   width: 5%;
@@ -77,6 +88,24 @@
   text-align: center;
   border-radius: 10px;
   border: 1px solid black;
+}
+
+.donebtn {
+  display: block;
+  padding: 0 10vh;
+
+  position: absolute;
+  right: 45%;
+  bottom: 45%;
+ 
+  text-align: center;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+.donebutton_container {
+width: 100%;
+  text-align: center;
 }
 
 .alignButtons {

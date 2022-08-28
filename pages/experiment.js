@@ -44,11 +44,11 @@ export default function Experiment() {
         />
 
         :
-        <div >
+        <div className={styles.donebutton_container}>
           <Link
             href="/questionnaire" passHref>
-            <Button className={styles.btn}>
-              Done
+            <Button className={styles.donebtn}>
+              Continue to final post-study survey
             </Button>
           </Link>
         </div>

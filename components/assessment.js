@@ -16,10 +16,6 @@ import ShortSurvey from '../components/shortsurvey'
 import { Range } from 'react-range';
 
 
-
-
-
-
 export default function Assessment({ partOrder, partInd, setPartInd, allDone, setAllDone }) {
     const context = useContext(AppContext)
     const router = useRouter()
@@ -49,7 +45,7 @@ export default function Assessment({ partOrder, partInd, setPartInd, allDone, se
     const [finishAssess, setFinishAssess] = useState(false)
 
 
-
+    //For counting number of clicks on the image and toggling between image/overlay
     function handleClick() {
 
         if (captionText == 'Click on image to see registration result') {
@@ -65,27 +61,12 @@ export default function Assessment({ partOrder, partInd, setPartInd, allDone, se
 
     }
 
-
-    useEffect(() => {
-        console.log('***********************')
-        console.log(context.session)
-        console.log('This is case #' + imOrderInd)
-        console.log('Clickcount:' + clickcount)
-        console.log('Current image:' + imagePath)
-        console.log('Slider value: ' + valueAssess)
-        console.log('User may continue:' + canContinue)
-        console.log('part:' + partOrder[partInd])
-        console.log('***********************')
-
-    });
-
-
+    //For moving onto the next image
     const handleChangeImage = (e) => {
         e.preventDefault();
         if (imOrderInd + 1 == imageOrder.length) {
-            // router.push('/questionnaire')
             setFinishAssess(true)
-            console.log('Done with experiments')
+            console.log('Done with part #' + (partInd + 1))
         }
         else {
             if (canContinue) {
@@ -100,13 +81,29 @@ export default function Assessment({ partOrder, partInd, setPartInd, allDone, se
                 setCanContinue(false)
                 setValueConf(0)
                 setClickCount(0)
+                setValueAssess([50])
             }
-            else { alert("Please make sure to complete all the fields!"); }
+            else { alert("Please complete all fields in the right order!"); }
         }
 
     }
 
-    const handleChangeSlider = (newValue) => { setValueAssess(newValue) }
+    const handleChangeSlider = (newValue) => {
+        setValueAssess(newValue)
+    }
+
+    //For sanity check/debugging
+    useEffect(() => {
+        console.log('***********************')
+        console.log('This is case #' + imOrderInd)
+        console.log('Clickcount:' + clickcount)
+        console.log('Current image:' + imagePath)
+        console.log('Slider value: ' + valueAssess)
+        console.log('User may continue:' + canContinue)
+        console.log('part:' + partOrder[partInd])
+        console.log('***********************')
+
+    });
 
 
 
@@ -132,51 +129,50 @@ export default function Assessment({ partOrder, partInd, setPartInd, allDone, se
                             </h1>
 
                             <div className={styles.imageBox} onClick={handleClick}>
-                                <Image className={styles.imageBorder} src={imagePath} height={350} width={350}></Image>
+                                <Image className={styles.imageBorder} src={imagePath} height={450} width={450}></Image>
                                 <p className={styles.caption}>{captionText}</p>
                             </div>
 
+
                             <p className={styles.questions}>1) How would you assess this registration result?</p>
 
-                            <>
-                                <Range
-                                    step={0.1}
-                                    min={0}
-                                    max={100}
-                                    values={valueAssess}
-                                    onChange={handleChangeSlider}
-                                    renderTrack={({ props, children }) => (
-                                        <div className={styles.track}
-                                            {...props}
-                                            style={{ ...props.style }} class={styles.track}
-                                        >
-                                            {children}
-                                        </div>
-                                    )}
-                                    renderThumb={({ props }) => (
-                                        <div className={styles.thumb}
-                                            {...props}
-                                            style={{
-                                                ...props.style,
-                                                height: '4vh',
-                                                width: '4vh'
-                                            }} class={styles.thumb}
-                                        />
-                                    )}
-                                />
 
-                                <ul>
-                                    <div className={styles.options}>
-                                        <li>Strong reject</li>
-                                        <li>Moderate reject</li>
-                                        <li>Mild reject</li>
-                                        <li>Mild accept</li>
-                                        <li>Moderate accept</li>
-                                        <li>Strong accept</li>
+                            <Range
+                                step={0.1}
+                                min={0}
+                                max={100}
+                                values={valueAssess}
+                                onChange={handleChangeSlider}
+                                renderTrack={({ props, children }) => (
+                                    <div className={styles.track}
+                                        {...props}
+                                        style={{ ...props.style }} class={styles.track}
+                                    >
+                                        {children}
                                     </div>
-                                </ul>
+                                )}
+                                renderThumb={({ props }) => (
+                                    <div className={styles.thumb}
+                                        {...props}
+                                        style={{
+                                            ...props.style,
+                                            height: '4vh',
+                                            width: '4vh'
+                                        }} class={styles.thumb}
+                                    />
+                                )}
+                            />
 
-                            </>
+                            <ul>
+                                <div className={styles.options}>
+                                    <li>Strong reject</li>
+                                    <li>Moderate reject</li>
+                                    <li>Mild reject</li>
+                                    <li>Mild accept</li>
+                                    <li>Moderate accept</li>
+                                    <li>Strong accept</li>
+                                </div>
+                            </ul>
 
 
                             <p className={styles.questions}>2) How confident are you on your assessment?</p>
@@ -188,12 +184,13 @@ export default function Assessment({ partOrder, partInd, setPartInd, allDone, se
                                 setCanContinue={setCanContinue}
                             />
 
-                            <div>
+                            <div className={styles.donebutton_container}>
                                 <Button disabled={!canContinue} className={styles.btn} onClick={handleChangeImage}>
                                     Next
                             </Button>
                             </div>
                         </>
+
                         :
                         <>
                             <ShortSurvey
@@ -206,6 +203,8 @@ export default function Assessment({ partOrder, partInd, setPartInd, allDone, se
                                 setFinishAccess={setFinishAssess}
                                 imOrderInd={imOrderInd}
                                 setImOrderInd={setImOrderInd}
+                                canContinue={canContinue}
+                                setCanContinue={setCanContinue}
                                 allDone={allDone}
                                 setAllDone={setAllDone}
                             />

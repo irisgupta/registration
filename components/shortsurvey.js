@@ -29,7 +29,7 @@ const formItemLayout = {
 };
 
 
-export default function ShortSurvey({ partOrder, partInd, setPartInd, readExplanation, setReadExplanation, finishAccess, setFinishAccess, imOrderInd, setImOrderInd, allDone, setAllDone }) {
+export default function ShortSurvey({ partOrder, partInd, setPartInd, readExplanation, setReadExplanation, finishAccess, setFinishAccess, imOrderInd, setImOrderInd, canContinue, setCanContinue, allDone, setAllDone }) {
 
     const continueChange = (e) => {
         e.preventDefault();
@@ -43,6 +43,7 @@ export default function ShortSurvey({ partOrder, partInd, setPartInd, readExplan
             setFinishAccess(false)
             setPartInd(partInd + 1)
             setImOrderInd(0)
+            setCanContinue(false)
 
         }
 
