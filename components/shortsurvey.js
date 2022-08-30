@@ -45,6 +45,10 @@ export default function ShortSurvey({ partOrder, partInd, setPartInd, readExplan
             setImOrderInd(0)
             setCanContinue(false)
 
+
+            //HERE add setImagepath if part done going over next part?
+            // setimagePath('/' + partOrder[partInd] + '_' + imageOrder[imOrderInd + 1] + '_1' + '.png');
+
         }
 
     }

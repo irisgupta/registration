@@ -23,7 +23,7 @@ export default function Experiment() {
     return array.sort(() => Math.random() - 0.5);
   }
 
-  const [partOrder, setPartOrder] = useState(generate_order([1, 2]))
+  const [partOrder, setPartOrder] = useState(generate_order([1, 2, 3]))
   const [partInd, setPartInd] = useState(0)
 
 
