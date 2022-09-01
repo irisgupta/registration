@@ -53,10 +53,10 @@ export default function Explanation({ partOrder, partInd, readExplanation, setRe
 
                             <p>This visualization paradigm is generated with the segmentation and boundary points of the 2D/3D registration result of the pelvis as well as the expected segmentation and boundary points of the pelvis from the original x-ray (i.e., visualizes the overlapped regions as well as the misaligned regions). </p>
                             <div className={styles.imageBox}>
-                                <Image className={styles.imageBorder} src={'/overlap1.png'} height={450} width={450}></Image>
+                                <Image className={styles.imageBorder} src={'/overlap1.png'} height={350} width={650}></Image>
                             </div>
                             <div className={styles.imageBox}>
-                                <Image className={styles.imageBorder} src={'/overlap2.png'} height={450} width={450}></Image>
+                                <Image className={styles.imageBorder} src={'/overlap2.png'} height={350} width={650}></Image>
                             </div>
 
                             <Button variant="btn btn-success" onClick={continueChange}>
