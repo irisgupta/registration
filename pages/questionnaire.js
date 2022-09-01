@@ -73,6 +73,7 @@ const Questionnaire = () => {
         
         <div className={styles.text}> Please indicate your answer in a 5-point scale. </div>
 
+        <div className={styles.scaleContainer}>
         <Form.Item 
             name="i1" 
             label = {
@@ -193,7 +194,7 @@ const Questionnaire = () => {
                 <Radio value="5">5 (expert)</Radio>
                 </Radio.Group>
         </Form.Item>
-        
+        </div>
         
         
         
@@ -205,6 +206,7 @@ const Questionnaire = () => {
             }}
         >
 
+        <div className={styles.demographicsContainer}>
             <Form.Item 
                 name="age" 
                 label = {
@@ -241,13 +243,16 @@ const Questionnaire = () => {
                     <Select.Option value="other">other</Select.Option>
                 </Select>
             </Form.Item>
+            </div>
 
             <div className={styles.text}> 
             <Link href= "/end" passHref>
-         
-                <Button component="a">
-                    Submit
-                </Button>
+
+                <div className={styles.buttonContainer}>
+                    <Button component="a">
+                        Submit
+                    </Button>
+                </div>
             </Link>
             </div> 
 

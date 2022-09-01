@@ -122,9 +122,9 @@ export default function ShortSurvey({ partOrder, partInd, setPartInd, readExplan
                     </Radio.Group>
                 </Form.Item>
 
-                <Button variant="btn btn-success" onClick={continueChange}>
-                    Submit
-        </Button>
+                <div className={styles.buttonContainer}>
+                    <Button variant="btn btn-success" onClick={continueChange}>Submit</Button>
+                </div>
             </Form>
 
 

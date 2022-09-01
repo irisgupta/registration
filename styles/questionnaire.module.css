@@ -6,8 +6,8 @@
 
 .container {
   margin-top: 20px;
-  width: 75%;
-  margin-left: 13%;
+  width: 82%;
+  margin-left: 10%;
 }
 
 .text {
@@ -43,4 +43,17 @@
 .right-column {
   width: 50%;
   margin-right: 10px;
+}
+
+.buttonContainer {
+  padding-bottom:4%;
+  padding-left: 45.5%;
+}
+
+.scaleContainer {
+  padding-left:5%;
+}
+
+.demographicsContainer {
+  padding-left: 1%;
 }
