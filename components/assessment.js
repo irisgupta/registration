@@ -38,6 +38,7 @@ export default function Assessment({ partOrder, partInd, setPartInd, allDone, se
     //user responses
     const [valueAssess, setValueAssess] = useState([50]);
     const [valueConf, setValueConf] = useState(0);
+    const [bubble, setBubble] = useState('');
 
 
     //progress
@@ -90,6 +91,25 @@ export default function Assessment({ partOrder, partInd, setPartInd, allDone, se
 
     const handleChangeSlider = (newValue) => {
         setValueAssess(newValue)
+
+        if (newValue < 16.67) {
+            setBubble('Strong reject')
+        }
+        else if (newValue >= 16.67 && newValue < 33.33) {
+            setBubble('Moderate reject')
+        }
+        else if (newValue >= 33.33 && newValue < 50.00) {
+            setBubble('Mild reject')
+        }
+        else if (newValue >= 50.00 && newValue < 66.67) {
+            setBubble('Mild accept')
+        }
+        else if (newValue >= 66.67 && newValue < 83.34) {
+            setBubble('Moderate accept')
+        }
+        else if (newValue >= 83.34) {
+            setBubble('Strong accept')
+        }
     }
 
     //For sanity check/debugging
@@ -99,6 +119,7 @@ export default function Assessment({ partOrder, partInd, setPartInd, allDone, se
         console.log('Clickcount:' + clickcount)
         console.log('Current image:' + imagePath)
         console.log('Slider value: ' + valueAssess)
+        console.log('Bubble: ' + bubble)
         console.log('User may continue:' + canContinue)
         console.log('part:' + partOrder[partInd])
         console.log('***********************')
