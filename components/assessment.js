@@ -150,14 +150,14 @@ export default function Assessment({ partOrder, partInd, setPartInd, allDone, se
                             </h1>
 
                             <div className={styles.imageBox} onClick={handleClick}>
-                                <Image className={styles.imageBorder} src={imagePath} height={450} width={450}></Image>
+                                <img className={styles.imageBorder} src={imagePath}></img>
                                 <p className={styles.caption}>{captionText}</p>
                             </div>
 
 
                             <p className={styles.questions}>1) How would you assess this registration result?</p>
-
-
+                            <p className={styles.questionCaption1}>Please move the slider to reflect your choice.</p>
+                            
                             <Range
                                 step={0.1}
                                 min={0}
@@ -194,6 +194,8 @@ export default function Assessment({ partOrder, partInd, setPartInd, allDone, se
                                     <li>Strong accept</li>
                                 </div>
                             </ul>
+
+                            <p className={styles.questionCaption2}>{bubble}</p>
 
 
                             <p className={styles.questions}>2) How confident are you on your assessment?</p>

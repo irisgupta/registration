@@ -13,8 +13,30 @@
 .questions {
   font-size: 1.5vw;
   padding-left: 53%;
-  padding-bottom: 1.5%;
   padding-top: 5%;
+}
+
+.questionCaption1 {
+  font-size: 1vw;
+  padding-left: 60%;
+  padding-bottom: 1.5%;
+}
+
+.questionCaption2 {
+  font-size: 0.9vw;
+  padding-top:0.5%;
+  padding-bottom:0.5%;
+
+	background-color: #fff;
+	border-radius: 1rem;
+  box-shadow:	0 0.125rem 0.5rem rgba(0, 0, 0, .3), 0 0.0625rem 0.125rem rgba(0, 0, 0, .2);
+  width: 9%;
+  margin-left:64.5%;
+  text-align:center;
+}
+
+.sliderContainer {
+  border: 2px solid black;
 }
 
 .track {
@@ -58,7 +80,8 @@
 
 .imageBorder {
   border: 2px solid black;
-  width:70vh;
+  width:35vw;
+  height:35wv;
 }
 
 
@@ -131,4 +154,8 @@ width: 100%;
 .buttons:focus {
   background-color: gray;
   border: 1px solid white;
+}
+
+.buttons:hover {
+  background-color: gray;
 }
