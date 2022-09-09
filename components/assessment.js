@@ -16,15 +16,15 @@ import ShortSurvey from '../components/shortsurvey'
 import { Range } from 'react-range';
 
 
-export default function Assessment({ partOrder, partInd, setPartInd, allDone, setAllDone }) {
+export default function Assessment({ partOrder, partInd, setPartInd, setAllDone, imageOrder, imOrderInd, setImOrderInd, imagePath, setImagePath }) {
     const context = useContext(AppContext)
     const router = useRouter()
 
 
     //image
-    let imageOrder = ['1', '2'];
-    const [imOrderInd, setImOrderInd] = useState(0)
-    const [imagePath, setimagePath] = useState('/' + partOrder[partInd] + '_' + imageOrder[imOrderInd] + '_1' + '.png');
+    // let imageOrder = ['1', '2'];
+    // const [imOrderInd, setImOrderInd] = useState(0)
+    // const [imagePath, setimagePath] = useState('/' + partOrder[partInd] + '_' + imageOrder[imOrderInd] + '_1' + '.png');
 
     const [captionText, setCaptionText] = useState('Click on image to see registration result');
 
@@ -38,7 +38,7 @@ export default function Assessment({ partOrder, partInd, setPartInd, allDone, se
     //user responses
     const [valueAssess, setValueAssess] = useState([50]);
     const [valueConf, setValueConf] = useState(0);
-    const [bubble, setBubble] = useState('');
+    const [bubble, setBubble] = useState('Please move the slider');
 
 
     //progress
@@ -51,11 +51,11 @@ export default function Assessment({ partOrder, partInd, setPartInd, allDone, se
 
         if (captionText == 'Click on image to see registration result') {
             setCaptionText('Click on image to see x-ray image');
-            setimagePath('/' + partOrder[partInd] + '_' + imageOrder[imOrderInd] + '_2' + '.png');
+            setImagePath('/' + partOrder[partInd] + '_' + imageOrder[imOrderInd] + '_2' + '.png');
         }
         else {
             setCaptionText('Click on image to see registration result');
-            setimagePath('/' + partOrder[partInd] + '_' + imageOrder[imOrderInd] + '_1' + '.png');
+            setImagePath('/' + partOrder[partInd] + '_' + imageOrder[imOrderInd] + '_1' + '.png');
         }
         setClickCount(clickcount + 1)
 
@@ -64,10 +64,19 @@ export default function Assessment({ partOrder, partInd, setPartInd, allDone, se
 
     //For moving onto the next image
     const handleChangeImage = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
         if (imOrderInd + 1 == imageOrder.length) {
             setFinishAssess(true)
             console.log('Done with part #' + (partInd + 1))
+            setImOrderInd(0)
+            // setImagePath('/' + partOrder[partInd] + '_' + imageOrder[0] + '_1' + '.png');
+            setCaptionText('Click on image to see registration result');
+            setCanContinue(false)
+            setValueConf(0)
+            setClickCount(0)
+            setValueAssess([50])
+            setBubble('Please move the slider')
+
         }
         else {
             if (canContinue) {
@@ -77,12 +86,13 @@ export default function Assessment({ partOrder, partInd, setPartInd, allDone, se
                     valueConf
                 })
                 setImOrderInd(imOrderInd + 1);
-                setimagePath('/' + partOrder[partInd] + '_' + imageOrder[imOrderInd + 1] + '_1' + '.png');
+                setImagePath('/' + partOrder[partInd] + '_' + imageOrder[imOrderInd + 1] + '_1' + '.png');
                 setCaptionText('Click on image to see registration result');
                 setCanContinue(false)
                 setValueConf(0)
                 setClickCount(0)
                 setValueAssess([50])
+                setBubble('Please move the slider')
             }
             else { alert("Please complete all fields in the right order!"); }
         }
@@ -136,6 +146,8 @@ export default function Assessment({ partOrder, partInd, setPartInd, allDone, se
                     <Explanation
                         partOrder={partOrder}
                         partInd={partInd}
+                        imageOrder={imageOrder}
+                        setImagePath={setImagePath}
                         readExplanation={readExplanation}
                         setReadExplanation={setReadExplanation}
 
@@ -156,8 +168,7 @@ export default function Assessment({ partOrder, partInd, setPartInd, allDone, se
 
 
                             <p className={styles.questions}>1) How would you assess this registration result?</p>
-                            <p className={styles.questionCaption1}>Please move the slider to reflect your choice.</p>
-                            
+
                             <Range
                                 step={0.1}
                                 min={0}
@@ -167,20 +178,55 @@ export default function Assessment({ partOrder, partInd, setPartInd, allDone, se
                                 renderTrack={({ props, children }) => (
                                     <div className={styles.track}
                                         {...props}
+                                        onMouseDown={props.onMouseDown}
+                                        onTouchStart={props.onTouchStart}
                                         style={{ ...props.style }} class={styles.track}
                                     >
                                         {children}
                                     </div>
                                 )}
-                                renderThumb={({ props }) => (
+                                renderThumb={({ props, isDragged }) => (
                                     <div className={styles.thumb}
                                         {...props}
                                         style={{
                                             ...props.style,
                                             height: '4vh',
-                                            width: '4vh'
-                                        }} class={styles.thumb}
-                                    />
+                                            width: '4vh',
+                                            borderRadius: '4px',
+                                            backgroundColor: '#FFF',
+                                            display: 'flex',
+                                            justifyContent: 'center',
+                                            alignItems: 'center',
+                                            boxShadow: '0px 2px 6px #AAA'
+                                        }}
+                                    >
+                                        <div
+                                            style={{
+                                                width: '10vw',
+                                                height: '3vh',
+                                                position: 'absolute',
+                                                top: '-4vh',
+                                                fontSize: '0.8vw',
+                                                color: bubble != 'Please move the slider' ? 'black' : '#CCC',
+                                                fontFamily: 'Arial,Helvetica Neue,Helvetica,sans-serif',
+                                                textAlign: 'center',
+                                                padding: '0.3vh',
+                                                borderRadius: '4px',
+                                                backgroundColor: '#fff',
+                                                boxShadow: '0 0.125rem 0.5rem rgba(0, 0, 0, .3), 0 0.0625rem 0.125rem rgba(0, 0, 0, .2)'
+                                            }}
+                                        >
+                                            {bubble}
+                                        </div>
+                                        <div
+                                            style={{
+                                                height: '2.5vh',
+                                                width: '0.2vw',
+                                                backgroundColor: isDragged ? 'black' : '#CCC'
+                                            }}
+                                        />
+                                    </div>
+
                                 )}
                             />
 
@@ -195,8 +241,6 @@ export default function Assessment({ partOrder, partInd, setPartInd, allDone, se
                                 </div>
                             </ul>
 
-                            <p className={styles.questionCaption2}>{bubble}</p>
-
 
                             <p className={styles.questions}>2) How confident are you on your assessment?</p>
 
@@ -206,12 +250,12 @@ export default function Assessment({ partOrder, partInd, setPartInd, allDone, se
                                 clickcount={clickcount}
                                 setCanContinue={setCanContinue}
                             />
-
-                            <div className={styles.donebutton_container}>
+                            <div className={styles.nextbutton_container}>
                                 <Button disabled={!canContinue} className={styles.btn} onClick={handleChangeImage}>
                                     Next
                             </Button>
                             </div>
+
                         </>
 
                         :
@@ -220,15 +264,8 @@ export default function Assessment({ partOrder, partInd, setPartInd, allDone, se
                                 partOrder={partOrder}
                                 partInd={partInd}
                                 setPartInd={setPartInd}
-                                readExplanation={readExplanation}
                                 setReadExplanation={setReadExplanation}
-                                finishAccess={finishAssess}
-                                setFinishAccess={setFinishAssess}
-                                imOrderInd={imOrderInd}
-                                setImOrderInd={setImOrderInd}
-                                canContinue={canContinue}
-                                setCanContinue={setCanContinue}
-                                allDone={allDone}
+                                setFinishAssess={setFinishAssess}
                                 setAllDone={setAllDone}
                             />
 

@@ -34,7 +34,7 @@ export default function Buttons({ valueConf, setValueConf, clickcount, setCanCon
             </div>
 
             <ul>
-                <div className={styles.options}>
+                <div className={styles.options2}>
                     <li>Not at all</li>
                     <li>Slightly</li>
                     <li>Moderately</li>

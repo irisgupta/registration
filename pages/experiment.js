@@ -26,6 +26,9 @@ export default function Experiment() {
   const [partOrder, setPartOrder] = useState(generate_order([1, 2, 3]))
   const [partInd, setPartInd] = useState(0)
 
+  let imageOrder = ['1', '2'];
+  const [imOrderInd, setImOrderInd] = useState(0)
+  const [imagePath, setImagePath] = useState('/' + partOrder[partInd] + '_' + imageOrder[imOrderInd] + '_1' + '.png');
 
 
 
@@ -39,8 +42,12 @@ export default function Experiment() {
           partOrder={partOrder}
           partInd={partInd}
           setPartInd={setPartInd}
-          allDone={allDone}
           setAllDone={setAllDone}
+          imageOrder={imageOrder}
+          imOrderInd={imOrderInd}
+          setImOrderInd={setImOrderInd}
+          imagePath={imagePath}
+          setImagePath={setImagePath}
         />
 
         :

@@ -7,10 +7,12 @@ import Image from 'next/image'
 
 
 
-export default function Explanation({ partOrder, partInd, readExplanation, setReadExplanation }) {
+export default function Explanation({ partOrder, partInd, imageOrder, setImagePath, readExplanation, setReadExplanation }) {
 
     const continueChange = () => {
         setReadExplanation(true);
+        setImagePath('/' + partOrder[partInd] + '_' + imageOrder[0] + '_1' + '.png');
+
 
     }
 

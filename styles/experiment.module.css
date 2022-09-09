@@ -1,6 +1,6 @@
 .header {
   margin-left: 3%;
-  margin-top: 3%;
+  margin-top: 5%;
   margin-bottom: 2%;
   font-size: 2vw;
 }
@@ -14,26 +14,9 @@
   font-size: 1.5vw;
   padding-left: 53%;
   padding-top: 5%;
+  padding-bottom: 3%;
 }
 
-.questionCaption1 {
-  font-size: 1vw;
-  padding-left: 60%;
-  padding-bottom: 1.5%;
-}
-
-.questionCaption2 {
-  font-size: 0.9vw;
-  padding-top:0.5%;
-  padding-bottom:0.5%;
-
-	background-color: #fff;
-	border-radius: 1rem;
-  box-shadow:	0 0.125rem 0.5rem rgba(0, 0, 0, .3), 0 0.0625rem 0.125rem rgba(0, 0, 0, .2);
-  width: 9%;
-  margin-left:64.5%;
-  text-align:center;
-}
 
 .sliderContainer {
   border: 2px solid black;
@@ -46,22 +29,20 @@
     rgba(186, 0, 0, 0.83) 100%
   );
   display: block;
-  margin-left: 51.5%;
-  width: 35%;
+  margin-left: 53%;
+  width: 40%;
   height: 4vh;
   border: 2px solid black;
 }
 
 .thumb {
-  background: #48b53e;
-  border-radius: 50%;
   border: 1px solid black;
 }
 
 .options {
   text-align: center;
-  margin-left: 48.5%;
-  width: 40%;
+  margin-left: 50%;
+  width: 45%;
 }
 
 .options li {
@@ -69,8 +50,22 @@
   display: inline-block;
   width: 16.3%;
   font-size: 0.8vw;
-  padding-left: 0.1vh;
 }
+
+.options2 {
+  text-align: center;
+  margin-left: 47.4%;
+  width:49.5%;
+}
+
+.options2 li {
+  list-style-type: none;
+  display: inline-block;
+  width: 17%;
+  font-size: 0.8vw;
+  
+}
+
 
 .imageBox {
   float: left;
@@ -86,28 +81,26 @@
 
 
 .nextbutton_container {
-  display: inline-block;
-  padding: 4px 4px;
-  width: 75%;
-  margin-top: 20px;
-  margin-left: 13%;
+  width: 100%;
+  text-align: center;
+  padding-top: 5%;
+  padding-bottom: 3%;
   
 }
 
 
 .btn {
   display: block;
-  width: 5%;
-  padding: 0.8vh 0;
   position: absolute;
-  right: 7.5%;
-  bottom: 6.5%;
+  right: 6.5%;
+  bottom: 5.5%;
   background: linear-gradient(
     180deg,
     #6fa0e9 0%,
     rgba(78, 122, 187, 0.43) 123.65%
   );
   color: black;
+  font-size: 2vh;
   text-align: center;
   border-radius: 10px;
   border: 1px solid black;
@@ -127,14 +120,15 @@
 }
 
 .donebutton_container {
-width: 100%;
+  width: 100%;
   text-align: center;
+
 }
 
 .alignButtons {
   text-align: center;
   margin-left: 53%;
-  width: 32%;
+  width: 40%;
 }
 
 .buttonContainer {

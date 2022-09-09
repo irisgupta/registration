@@ -29,10 +29,10 @@ const formItemLayout = {
 };
 
 
-export default function ShortSurvey({ partOrder, partInd, setPartInd, readExplanation, setReadExplanation, finishAccess, setFinishAccess, imOrderInd, setImOrderInd, canContinue, setCanContinue, allDone, setAllDone }) {
+export default function ShortSurvey({ partOrder, partInd, setPartInd, setReadExplanation, setFinishAssess, setAllDone }) {
 
     const continueChange = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
 
         if (partInd + 1 == partOrder.length) {
             setAllDone(true)
@@ -40,14 +40,8 @@ export default function ShortSurvey({ partOrder, partInd, setPartInd, readExplan
         }
         else {
             setReadExplanation(false);
-            setFinishAccess(false)
-            setPartInd(partInd + 1)
-            setImOrderInd(0)
-            setCanContinue(false)
-
-
-            //HERE add setImagepath if part done going over next part?
-            // setimagePath('/' + partOrder[partInd] + '_' + imageOrder[imOrderInd + 1] + '_1' + '.png');
+            setFinishAssess(false)
+            setPartInd(partInd + 1);
 
         }
 
