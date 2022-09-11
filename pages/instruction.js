@@ -5,6 +5,8 @@ import { Button, Checkbox, Row, Col } from 'antd'
 import 'antd/dist/antd.css';
 import { useContext } from "react"
 import AppContext from "../components/AppContext"
+import Image from 'next/image'
+
 
 export default function Instruction() {
   const context = useContext(AppContext)
@@ -37,7 +39,7 @@ export default function Instruction() {
   return (
     <>
       <div className={styles.container}>
-        <div>{context.session}</div>
+        {/* <div>{context.session}</div> */}
         <h1>Instructions</h1>
 
         {!acceptFirst ?
@@ -46,13 +48,21 @@ export default function Instruction() {
             <div className={styles.text}> Welcome to 2D/3D Registration Assessment! Your task today is to evaluate the 2D/3D registration results of the pelvis.
       </div>
 
-            <div className={styles.text}> 2D/3D registration, the registration between intraoperative 2D images and the appropriate 3D models, is a key technology for image-guided interventions. Once this is deployed in a clinical setting, clinicians or medical technicians will need to interpret whether a registration result given by the system is acceptable. (Insert helpful videos/images)
+            <div className={styles.text}> 2D/3D registration, the registration between intraoperative 2D images and the appropriate 3D models, is a key technology for image-guided interventions. Once this is deployed in a clinical setting, clinicians or medical technicians will need to interpret whether a registration result given by the system is acceptable.
       </div>
+            <div className={styles.text}> The following figure shows an example workflow of how 2D/3D registration can be used for robot and femur anatomy pose estimation in image-based navigation for robot-assisted femoroplasty (<a href="https://ieeexplore.ieee.org/document/9151197/" target="_blank">Gao et al., 2020</a>).
+            </div>
+            <div className={styles.imageBox}>
+              <Image className={styles.imageBorder} src={'/2d3dExample.png'} height={1000} width={500}></Image>
+            </div>
 
+            <div className={styles.contButtonContainer} >
 
-            <Button variant="btn btn-success" onClick={continueChange}>
-              Continue
+              <Button variant="btn btn-success" onClick={continueChange}>
+                Continue
       </Button>
+            </div>
+
           </>
           :
           <>
