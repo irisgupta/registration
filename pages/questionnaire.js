@@ -210,7 +210,7 @@ const Questionnaire = () => {
                     <Form.Item
                         name="age"
                         label={
-                            <p style={{ fontSize: "20px" }}> Age range</p>}
+                            'Age range'}
                         rules={[{
                             required: true,
                         },
@@ -229,14 +229,12 @@ const Questionnaire = () => {
                     <Form.Item
                         name="gender"
                         label={
-                            <p style={{ fontSize: "20px" }}> Gender</p>}
+                            'Gender'}
                         rules={[{
                             required: true,
                         },
                         ]}>
-                        <Select
-                            allowClear
-                        >
+                        <Select>                  >
                             <Select.Option value="male">male</Select.Option>
                             <Select.Option value="female">female</Select.Option>
                             <Select.Option value="none">prefer not to say</Select.Option>
