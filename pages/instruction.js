@@ -46,7 +46,7 @@ export default function Instruction() {
             <div className={styles.text}> Welcome to 2D/3D Registration Assessment! Your task today is to evaluate the 2D/3D registration results of the pelvis.
       </div>
 
-            <div className={styles.text}> 2D/3D registration, the registration between intraoperative 2D images and the appropriate 3D models, is a key technology for image-guided interventions. Once this is deployed in a clinical setting, clinicians or medical technicians will need to interpret whether a registration result given by the system is acceptable. (Insert helpful videos/images)
+            <div className={styles.text}> 2D/3D registration, the alignment between 3D spatial data and 2D projective data, is a key technology for image-guided interventions. It is commonly used in computer vision, medical imaging, art restoration, military target recognition, and satellite image analysis. When 2D/3D registration is deployed in a clinical setting, clinicians or medical technicians will need to determine whether a registration result given by the system is acceptable based on its accuracy and interpretability.
       </div>
 
 
