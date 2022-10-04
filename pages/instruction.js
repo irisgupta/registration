@@ -43,16 +43,17 @@ export default function Instruction() {
         {!acceptFirst ?
           <>
 
-            <div className={styles.text}> Welcome to 2D/3D Registration Assessment! Your task today is to evaluate the 2D/3D registration results of the pelvis.
-      </div>
+            <div className={styles.text}> Welcome to 2D/3D Registration Assessment! Your task today is to evaluate the 2D/3D registration results of the pelvis.</div>
 
-            <div className={styles.text}> 2D/3D registration, the alignment between 3D spatial data and 2D projective data, is a key technology for image-guided interventions. It is commonly used in computer vision, medical imaging, art restoration, military target recognition, and satellite image analysis. When 2D/3D registration is deployed in a clinical setting, clinicians or medical technicians will need to determine whether a registration result given by the system is acceptable based on its accuracy and interpretability.
-      </div>
+            <div className={styles.text}> 2D/3D registration, the alignment between 3D spatial data and 2D projective data, is a key technology for image-guided interventions. It is commonly used in computer vision, art restoration, medical imaging, and satellite image analysis. When 2D/3D registration is deployed in a clinical setting, clinicians or medical technicians will need to determine whether a registration result given by the system is precise or imprecise. Below is an example visualization of 2D/3D registration.</div>
 
+            <div>
+              <img className={styles.instructionImageBox} src = "2d3dExample.png"></img>
+            </div>
 
-            <Button variant="btn btn-success" onClick={continueChange}>
-              Continue
-      </Button>
+            <div>
+              <Button className={styles.centerButton} variant="btn btn-success" onClick={continueChange}>Continue</Button>
+            </div>
           </>
           :
           <>

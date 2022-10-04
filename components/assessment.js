@@ -103,22 +103,22 @@ export default function Assessment({ partOrder, partInd, setPartInd, setAllDone,
         setValueAssess(newValue)
 
         if (newValue < 16.67) {
-            setBubble('Strong reject')
+            setBubble('Imprecise')
         }
         else if (newValue >= 16.67 && newValue < 33.33) {
-            setBubble('Moderate reject')
+            setBubble('Imprecise')
         }
         else if (newValue >= 33.33 && newValue < 50.00) {
-            setBubble('Mild reject')
+            setBubble('Imprecise')
         }
         else if (newValue >= 50.00 && newValue < 66.67) {
-            setBubble('Mild accept')
+            setBubble('Precise')
         }
         else if (newValue >= 66.67 && newValue < 83.34) {
-            setBubble('Moderate accept')
+            setBubble('Precise')
         }
         else if (newValue >= 83.34) {
-            setBubble('Strong accept')
+            setBubble('Precise')
         }
     }
 
@@ -232,12 +232,12 @@ export default function Assessment({ partOrder, partInd, setPartInd, setAllDone,
 
                             <ul>
                                 <div className={styles.options}>
-                                    <li>Strong reject</li>
-                                    <li>Moderate reject</li>
-                                    <li>Mild reject</li>
-                                    <li>Mild accept</li>
-                                    <li>Moderate accept</li>
-                                    <li>Strong accept</li>
+                                    <li>Very imprecise</li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li>Very precise</li>
                                 </div>
                             </ul>
 

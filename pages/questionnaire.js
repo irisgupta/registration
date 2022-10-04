@@ -234,7 +234,7 @@ const Questionnaire = () => {
                             required: true,
                         },
                         ]}>
-                        <Select>                  >
+                        <Select>                  
                             <Select.Option value="male">male</Select.Option>
                             <Select.Option value="female">female</Select.Option>
                             <Select.Option value="none">prefer not to say</Select.Option>
