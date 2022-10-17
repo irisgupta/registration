@@ -48,12 +48,15 @@ export default function Instruction() {
             <div className={styles.text}> 2D/3D registration, the alignment between 3D spatial data and 2D projective data, is a key technology for image-guided interventions. It is commonly used in computer vision, art restoration, medical imaging, and satellite image analysis. When 2D/3D registration is deployed in a clinical setting, clinicians or medical technicians will need to determine whether a registration result given by the system is precise or imprecise. Below is an example visualization of 2D/3D registration.</div>
 
             <div>
-              <img className={styles.instructionImageBox} src = "2d3dExample.png"></img>
+              <img className={styles.instructionImageBox} src = "2d3dRegistration.png"></img>
             </div>
+
+            <div className={styles.text}>Given a 2D x-ray image, the 2D/3D registration algorithm computes an estimate of the 3D pose of the pelvis, and this information can be overlayed on the 2D x-ray image. In this study, we will be showing 3 different overlays.</div>
 
             <div>
               <Button className={styles.centerButton} variant="btn btn-success" onClick={continueChange}>Continue</Button>
             </div>
+            <br />
           </>
           :
           <>
