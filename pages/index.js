@@ -26,8 +26,8 @@ export default function Home() {
         .toString(16)
         .substring(1);
     }
-    //return id of format 'aaaaaaaa'-'aaaa'-'aaaa'-'aaaa'-'aaaaaaaaaaaa'
-    return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+    //return id of format 'aaaa'-'aaaa'-'aaaa'
+    return s4() + '-' + s4() + '-' + s4();
   }
 
 
@@ -57,7 +57,7 @@ export default function Home() {
           Welcome to 2D/3D Registration Assessment!
         </h1>
         <p>
-          You are being asked to participate in an online study for a research project at Johns Hopkins University. Participation in this study is voluntary and you will receive compensation if you complete the study. Even if you decide to join now, you can change your mind later. If you want to stop your participation in the study, you can simply close the browser. The records and data from the study will only be reviewed by team members involved in the project. We will not ask for information that identifies you, thus, your responses cannot be associated with your identity. This study has been approved by the Homewood IRB. By clicking "Continue", you accept these conditions and agree to participate in the study.
+          You are being asked to participate in an online study for a research project at Johns Hopkins University. Participation in this study is voluntary. Even if you decide to join now, you can change your mind later. If you want to stop your participation in the study, you can simply close the browser. The records and data from the study will only be reviewed by team members involved in the project. We will not ask for information that identifies you, thus, your responses cannot be associated with your identity. This study has been approved by the Homewood IRB. By clicking "Continue", you accept these conditions and agree to participate in the study.
         </p>
 
         <div>

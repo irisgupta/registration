@@ -1,13 +1,13 @@
 .header {
-  margin-left: 3%;
-  margin-top: 5%;
+  margin-left: 7%;
+  margin-top: 3%;
   margin-bottom: 2%;
   font-size: 2vw;
 }
 
 .caption {
   font-size: 1vw;
-  padding-left: 20%;
+  padding-left: 25%;
 }
 
 .questions {
@@ -25,12 +25,16 @@
 .track {
   background: linear-gradient(
     270deg,
-    rgba(12, 139, 210, 0.78) 0%,
-    rgba(186, 0, 0, 0.83) 100%
+    /* rgba(12, 139, 210, 0.78) 0%,
+    rgba(186, 0, 0, 0.83) 100% */
+    
+    #c4c4c5 0%,
+    #39393a 100%
+
   );
   display: block;
-  margin-left: 53%;
-  width: 40%;
+  margin-left: 54%;
+  width: 37%;
   height: 4vh;
   border: 2px solid black;
 }
@@ -54,8 +58,8 @@
 
 .options2 {
   text-align: center;
-  margin-left: 47.4%;
-  width:49.5%;
+  margin-left: 47%;
+  width:49%;
 }
 
 .options2 li {
@@ -75,8 +79,8 @@
 
 .imageBorder {
   border: 2px solid black;
-  width:35vw;
-  height:35wv;
+  width:40vw;
+  height:40wv;
 }
 
 
@@ -92,11 +96,11 @@
 .btn {
   display: block;
   position: absolute;
-  right: 6.5%;
+  right: 7.5%;
   bottom: 5.5%;
   background: linear-gradient(
     180deg,
-    #6fa0e9 0%,
+    #284db4 0%,
     rgba(78, 122, 187, 0.43) 123.65%
   );
   color: black;
@@ -104,6 +108,8 @@
   text-align: center;
   border-radius: 10px;
   border: 1px solid black;
+  width:8%;
+  height:4%;
 }
 
 .donebtn {

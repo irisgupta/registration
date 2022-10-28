@@ -3,7 +3,12 @@
   margin: 30px 0 20px 0;
   text-align: center;
 }
-
+.header {
+  margin-left: 3%;
+  margin-top: 3%;
+  margin-bottom: 2%;
+  font-size: 2vw;
+}
 .sub-title {
   font-size: 20px;
   margin-left: 5%;
@@ -14,7 +19,7 @@
 
 .container {
   margin-top: 20px;
-  width: 75%;
+  width: 80%;
   margin-left: 13%;
 }
 
@@ -48,8 +53,38 @@
   height: 100%;
 }
 
-.imageBox {
+/* .imageBox {
   padding-left: 21%;
+} */
+
+.caption {
+  font-size: 1vw;
+  padding-left: 21%;
+}
+
+.captionImg {
+  font-size: 1vw;
+  font-weight: bold;
+  padding-left: 30%;
+}
+
+.descript {
+  font-size: 1vw;
+  margin-left: 3%;
+}
+
+.imageBox {
+  float: left;
+  margin-left: 30%;
+  margin-right: 3%;
+  padding-bottom: 3%;
+  padding-top: 3;
+}
+
+.imageBorder {
+  border: 2px solid black;
+  width:30vw;
+  height:30wv;
 }
 
 .buttonContainer {
@@ -62,6 +97,8 @@
   padding-left: 80%;
 }
 
+
+
 .instructionImageBox {
   width: 65%;
   margin-left: 18%;
@@ -70,4 +107,9 @@
 
 .centerButton {
   margin-left: 45%;
+}
+
+.expButton {
+  padding-bottom:4%;
+  margin-left: 90%;
 }

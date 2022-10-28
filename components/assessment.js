@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { Button, Radio, Checkbox, Row, Col } from 'antd'
 import React, { useEffect, useState } from "react";
 import { db } from "../firebase";
-import { collection, addDoc, orderBy } from "firebase/firestore";
+import { collection, addDoc, orderBy, doc, setDoc, serverTimestamp } from "firebase/firestore";
 import { useSelector, useDispatch } from "react-redux";
 import { useRouter } from 'next/router'
 import Explanation from '../components/explanation'
@@ -16,7 +16,7 @@ import ShortSurvey from '../components/shortsurvey'
 import { Range } from 'react-range';
 
 
-export default function Assessment({ partOrder, partInd, setPartInd, setAllDone, imageOrder, imOrderInd, setImOrderInd, imagePath, setImagePath }) {
+export default function Assessment({ partOrder, partInd, setPartInd, setAllDone, imageOrder, poseOrder, imOrderInd, setImOrderInd, imagePath, setImagePath }) {
     const context = useContext(AppContext)
     const router = useRouter()
 
@@ -45,17 +45,19 @@ export default function Assessment({ partOrder, partInd, setPartInd, setAllDone,
     const [readExplanation, setReadExplanation] = useState(false)
     const [finishAssess, setFinishAssess] = useState(false)
 
+    const [timestampInd, setTimestampInd] = useState(0)
+
 
     //For counting number of clicks on the image and toggling between image/overlay
     function handleClick() {
 
         if (captionText == 'Click on image to see registration result') {
             setCaptionText('Click on image to see x-ray image');
-            setImagePath('/' + partOrder[partInd] + '_' + imageOrder[imOrderInd] + '_2' + '.png');
+            setImagePath('/data_36cases/' + imageOrder[imOrderInd] + '/' + poseOrder[imOrderInd] + '/' + partOrder[partInd] + '.png');
         }
         else {
             setCaptionText('Click on image to see registration result');
-            setImagePath('/' + partOrder[partInd] + '_' + imageOrder[imOrderInd] + '_1' + '.png');
+            setImagePath('/data_36cases/' + imageOrder[imOrderInd] + '/org_xray.png');
         }
         setClickCount(clickcount + 1)
 
@@ -76,50 +78,63 @@ export default function Assessment({ partOrder, partInd, setPartInd, setAllDone,
             setClickCount(0)
             setValueAssess([50])
             setBubble('Please move the slider')
+            setTimestampInd(0)
 
         }
         else {
             if (canContinue) {
-                addDoc(collection(db, "data"), {
-                    canContinue,
+                addDoc(collection(db, context.session), {
+                    timestampInd,
+                    partInd,
+                    imOrderInd,
                     imagePath,
-                    valueConf
+                    valueConf,
+                    clickcount,
+                    valueAssess,
+                    timestamp: serverTimestamp()
                 })
                 setImOrderInd(imOrderInd + 1);
-                setImagePath('/' + partOrder[partInd] + '_' + imageOrder[imOrderInd + 1] + '_1' + '.png');
+                setImagePath('/data_36cases/' + imageOrder[imOrderInd + 1] + '/org_xray.png');
                 setCaptionText('Click on image to see registration result');
                 setCanContinue(false)
                 setValueConf(0)
                 setClickCount(0)
                 setValueAssess([50])
                 setBubble('Please move the slider')
+                setTimestampInd(timestampInd + 1)
             }
             else { alert("Please complete all fields in the right order!"); }
         }
 
     }
 
+    // const handleChangeSlider = (newValue) => {
+    //     setValueAssess(newValue)
+
+    //     if (newValue < 16.67) {
+    //         setBubble('Imprecise')
+    //     }
+    //     else if (newValue >= 16.67 && newValue < 33.33) {
+    //         setBubble('Imprecise')
+    //     }
+    //     else if (newValue >= 33.33 && newValue < 50.00) {
+    //         setBubble('Imprecise')
+    //     }
+    //     else if (newValue >= 50.00 && newValue < 66.67) {
+    //         setBubble('Precise')
+    //     }
+    //     else if (newValue >= 66.67 && newValue < 83.34) {
+    //         setBubble('Precise')
+    //     }
+    //     else if (newValue >= 83.34) {
+    //         setBubble('Precise')
+    //     }
+    // }
+
     const handleChangeSlider = (newValue) => {
         setValueAssess(newValue)
 
-        if (newValue < 16.67) {
-            setBubble('Imprecise')
-        }
-        else if (newValue >= 16.67 && newValue < 33.33) {
-            setBubble('Imprecise')
-        }
-        else if (newValue >= 33.33 && newValue < 50.00) {
-            setBubble('Imprecise')
-        }
-        else if (newValue >= 50.00 && newValue < 66.67) {
-            setBubble('Precise')
-        }
-        else if (newValue >= 66.67 && newValue < 83.34) {
-            setBubble('Precise')
-        }
-        else if (newValue >= 83.34) {
-            setBubble('Precise')
-        }
+        setBubble("Your assessment")
     }
 
     //For sanity check/debugging
@@ -147,9 +162,12 @@ export default function Assessment({ partOrder, partInd, setPartInd, setAllDone,
                         partOrder={partOrder}
                         partInd={partInd}
                         imageOrder={imageOrder}
+                        poseOrder={poseOrder}
                         setImagePath={setImagePath}
                         readExplanation={readExplanation}
                         setReadExplanation={setReadExplanation}
+                        timestampInd={timestampInd}
+                        setTimestampInd={setTimestampInd}
 
                     />
                 </>
@@ -158,7 +176,7 @@ export default function Assessment({ partOrder, partInd, setPartInd, setAllDone,
                     {(!finishAssess) ?
                         <>
                             <h1 className={styles.header}>
-                                Image {imOrderInd + 1}/ {imageOrder.length}
+                                Paradigm {partInd + 1} - Image {imOrderInd + 1}/{imageOrder.length}
                             </h1>
 
                             <div className={styles.imageBox} onClick={handleClick}>

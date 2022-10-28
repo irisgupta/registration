@@ -23,14 +23,16 @@ export default function Experiment() {
     return array.sort(() => Math.random() - 0.5);
   }
 
-  const [partOrder, setPartOrder] = useState(generate_order([1, 2, 3]))
+  const [partOrder, setPartOrder] = useState(generate_order(['vis_1', 'vis_2', 'vis_3']))
   const [partInd, setPartInd] = useState(0)
 
-  let imageOrder = ['1', '2'];
+  const [imageOrder, setImageOrder] = useState(generate_order(['AP_i0', 'AP_i1', 'AP_i2', 'AP_i3', 'PA_i0', 'PA_i1', 'PA_i2', 'PA_i3', 'OB_i0', 'OB_i1', 'OB_i2', 'OB_i3']))
+  const [poseOrder, setPoseOrder] = useState(generate_order(['p0', 'p0', 'p0', 'p1', 'p1', 'p1', 'p2', 'p2', 'p2', 'p3', 'p3', 'p3']))
   const [imOrderInd, setImOrderInd] = useState(0)
-  const [imagePath, setImagePath] = useState('/' + partOrder[partInd] + '_' + imageOrder[imOrderInd] + '_1' + '.png');
 
 
+
+  const [imagePath, setImagePath] = useState('/data_36cases/' + imageOrder[imOrderInd] + '/org_xray.png');
 
 
 
@@ -44,6 +46,7 @@ export default function Experiment() {
           setPartInd={setPartInd}
           setAllDone={setAllDone}
           imageOrder={imageOrder}
+          poseOrder={poseOrder}
           imOrderInd={imOrderInd}
           setImOrderInd={setImOrderInd}
           imagePath={imagePath}
@@ -52,8 +55,16 @@ export default function Experiment() {
 
         :
         <div className={styles.donebutton_container}>
-          <Link
+          {/* <Link
             href="/questionnaire" passHref>
+            <Button className={styles.donebtn}>
+              Continue to final post-study survey
+            </Button>
+          </Link> */}
+
+
+          <Link
+            href="https://forms.gle/bYEa9tFSoAoP3aJp7" passHref>
             <Button className={styles.donebtn}>
               Continue to final post-study survey
             </Button>

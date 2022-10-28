@@ -69,9 +69,8 @@ const Questionnaire = () => {
     return (
 
         <div className={styles.container}>
-            <div className={styles.title}> Post-study survey</div>
 
-            <div className={styles.text}> Please indicate your answer in a 5-point scale. </div>
+            {/* <div className={styles.text}> Please indicate your answer in a 5-point scale. </div>
 
             <div className={styles.scaleContainer}>
                 <Form.Item
@@ -254,7 +253,7 @@ const Questionnaire = () => {
                     </Link>
                 </div>
 
-            </Form>
+            </Form> */}
 
         </div>
 

@@ -37,21 +37,21 @@ export default function Instruction() {
   return (
     <>
       <div className={styles.container}>
-        <div>{context.session}</div>
+        {/* <div>{context.session}</div> */}
         <h1>Instructions</h1>
 
         {!acceptFirst ?
           <>
 
-            <div className={styles.text}> Welcome to 2D/3D Registration Assessment! Your task today is to evaluate the 2D/3D registration results of the pelvis.</div>
+            <div className={styles.text}> Your task today is to evaluate the 2D/3D registration results of the pelvis.</div>
 
             <div className={styles.text}> 2D/3D registration, the alignment between 3D spatial data and 2D projective data, is a key technology for image-guided interventions. It is commonly used in computer vision, art restoration, medical imaging, and satellite image analysis. When 2D/3D registration is deployed in a clinical setting, clinicians or medical technicians will need to determine whether a registration result given by the system is precise or imprecise. Below is an example visualization of 2D/3D registration.</div>
 
             <div>
-              <img className={styles.instructionImageBox} src = "2d3dRegistration1.png"></img>
+              <img className={styles.instructionImageBox} src="2d3dRegistration1.png"></img>
             </div>
 
-            <div className={styles.text}>Given a 2D x-ray image, the 2D/3D registration algorithm computes an estimate of the 3D pose of the pelvis, and this information can be overlayed on the 2D x-ray image. In this study, we will be showing 3 different overlays.</div>
+            <div className={styles.text}>Given a 2D x-ray image, the 2D/3D registration algorithm computes an estimate of the 3D pose of the pelvis, and this information can be overlayed on the 2D x-ray image. In this study, we will be showing 3 different overlay paradigms.</div>
 
             <div>
               <Button className={styles.centerButton} variant="btn btn-success" onClick={continueChange}>Continue</Button>
@@ -63,8 +63,9 @@ export default function Instruction() {
             <div className={styles.text}>
               <ol>
                 <li> The main study has three parts, each testing a different visualization paradigm. </li>
-                <li>  Each part will consist of an explanation and example cases of the paradigm, 36 images with the paradigm, and a short survey.</li>
+                <li> Each part will consist of an explanation and example cases of the paradigm, following with 12 images with the paradigm.</li>
                 <li> For each image, click on the image to see the registration result at least once. You can change the view (between the x-ray and the overlay) as many times as you'd like. Then, provide your assessment of the registration result, answer the following question, and when you are done, move on to the next image.</li>
+                <li> Please take your time. Accuracy is more important than speed. </li>
                 <li> After completing the main study, you need to complete a post-study survey. </li>
 
               </ol>
@@ -77,7 +78,7 @@ export default function Instruction() {
       </div>
             <div className={styles.text}>
               <Checkbox onChange={checkboxHandler1} style={{ fontSize: "20px", textAlign: 'left', alignSelf: 'stretch' }}>
-                Once started, you will need to complete the study in one sitting without any interruption. Please note, the survey is estimated to take 30-40 minutes.
+                Once started, you will need to complete the study in one sitting without any interruption. Please note, the survey is estimated to take ~30 minutes.
       </Checkbox>
             </div>
             <div className={styles.text}>
