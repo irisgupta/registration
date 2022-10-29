@@ -46,7 +46,9 @@ export default function Experiment() {
           setPartInd={setPartInd}
           setAllDone={setAllDone}
           imageOrder={imageOrder}
+          setImageOrder={setImageOrder}
           poseOrder={poseOrder}
+          setPoseOrder={setPoseOrder}
           imOrderInd={imOrderInd}
           setImOrderInd={setImOrderInd}
           imagePath={imagePath}
@@ -64,7 +66,7 @@ export default function Experiment() {
 
 
           <Link
-            href="https://forms.gle/bYEa9tFSoAoP3aJp7" passHref>
+            href="https://forms.gle/SiXRsa2QkvbUKcqWA" passHref>
             <Button className={styles.donebtn}>
               Continue to final post-study survey
             </Button>

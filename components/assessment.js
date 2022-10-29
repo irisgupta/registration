@@ -16,10 +16,13 @@ import ShortSurvey from '../components/shortsurvey'
 import { Range } from 'react-range';
 
 
-export default function Assessment({ partOrder, partInd, setPartInd, setAllDone, imageOrder, poseOrder, imOrderInd, setImOrderInd, imagePath, setImagePath }) {
+export default function Assessment({ partOrder, partInd, setPartInd, setAllDone, imageOrder, setImageOrder, poseOrder, setPoseOrder, imOrderInd, setImOrderInd, imagePath, setImagePath }) {
     const context = useContext(AppContext)
     const router = useRouter()
 
+    let generate_order = (array) => {
+        return array.sort(() => Math.random() - 0.5);
+    }
 
     //image
     // let imageOrder = ['1', '2'];
@@ -79,6 +82,8 @@ export default function Assessment({ partOrder, partInd, setPartInd, setAllDone,
             setValueAssess([50])
             setBubble('Please move the slider')
             setTimestampInd(0)
+            setImageOrder(generate_order(['AP_i0', 'AP_i1', 'AP_i2', 'AP_i3', 'PA_i0', 'PA_i1', 'PA_i2', 'PA_i3', 'OB_i0', 'OB_i1', 'OB_i2', 'OB_i3']))
+            setPoseOrder(generate_order(['p0', 'p0', 'p0', 'p1', 'p1', 'p1', 'p2', 'p2', 'p2', 'p3', 'p3', 'p3']))
 
         }
         else {
@@ -162,7 +167,9 @@ export default function Assessment({ partOrder, partInd, setPartInd, setAllDone,
                         partOrder={partOrder}
                         partInd={partInd}
                         imageOrder={imageOrder}
+                        setImageOrder={setImageOrder}
                         poseOrder={poseOrder}
+                        setPoseOrder={setPoseOrder}
                         setImagePath={setImagePath}
                         readExplanation={readExplanation}
                         setReadExplanation={setReadExplanation}
@@ -285,6 +292,8 @@ export default function Assessment({ partOrder, partInd, setPartInd, setAllDone,
                                 setReadExplanation={setReadExplanation}
                                 setFinishAssess={setFinishAssess}
                                 setAllDone={setAllDone}
+                                setImageOrder={setImageOrder}
+                                setPoseOrder={setPoseOrder}
                             />
 
 

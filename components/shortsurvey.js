@@ -33,8 +33,12 @@ const formItemLayout = {
 };
 
 
-export default function ShortSurvey({ partOrder, partInd, setPartInd, setReadExplanation, setFinishAssess, setAllDone }) {
+export default function ShortSurvey({ partOrder, partInd, setPartInd, setReadExplanation, setFinishAssess, setAllDone, setImageOrder, setPoseOrder }) {
     const context = useContext(AppContext)
+
+    let generate_order = (array) => {
+        return array.sort(() => Math.random() - 0.5);
+    }
 
     const continueChange = (e) => {
         // e.preventDefault();
@@ -47,6 +51,7 @@ export default function ShortSurvey({ partOrder, partInd, setPartInd, setReadExp
             setReadExplanation(false);
             setFinishAssess(false)
             setPartInd(partInd + 1);
+
 
 
         }

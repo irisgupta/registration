@@ -19,6 +19,7 @@ export default function Explanation({ partOrder, partInd, imageOrder, poseOrder,
         setImagePath('/data_36cases/' + imageOrder[0] + '/org_xray.png');
         setTimestampInd(timestampInd + 1);
 
+
         addDoc(collection(db, context.session), {
             timestampInd,
             partInd,
