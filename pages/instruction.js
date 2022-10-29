@@ -51,7 +51,7 @@ export default function Instruction() {
               <img className={styles.instructionImageBox} src="2d3dRegistration1.png"></img>
             </div>
 
-            <div className={styles.text}>Given a 2D x-ray image, the 2D/3D registration algorithm computes an estimate of the 3D pose of the pelvis, and this information can be overlayed on the 2D x-ray image. In this study, we will be showing 3 different overlay paradigms.</div>
+            <div className={styles.text}>Given a 2D x-ray image, the 2D/3D registration algorithm computes an estimate of the 3D pose of the pelvis, and this information can be overlayed on the 2D x-ray image. In this study, you will be assessing 2D/3D registration results using 3 different overlay paradigms.</div>
 
             <div>
               <Button className={styles.centerButton} variant="btn btn-success" onClick={continueChange}>Continue</Button>
