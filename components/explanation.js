@@ -25,6 +25,7 @@ export default function Explanation({ partOrder, partInd, imageOrder, poseOrder,
             partInd,
             imageOrder,
             poseOrder,
+            partOrder,
             timestamp: serverTimestamp()
         })
 
