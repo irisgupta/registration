@@ -71,6 +71,17 @@ export default function Assessment({ partOrder, partInd, setPartInd, setAllDone,
     const handleChangeImage = (e) => {
         // e.preventDefault();
         if (imOrderInd + 1 == imageOrder.length) {
+            addDoc(collection(db, context.session), {
+                timestampInd,
+                partInd,
+                imOrderInd,
+                imagePath,
+                valueConf,
+                clickcount,
+                valueAssess,
+                timestamp: serverTimestamp()
+            })
+
             setFinishAssess(true)
             console.log('Done with part #' + (partInd + 1))
             setImOrderInd(0)
