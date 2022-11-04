@@ -23,7 +23,9 @@ export default function Experiment() {
     return array.sort(() => Math.random() - 0.5);
   }
 
-  const [partOrder, setPartOrder] = useState(generate_order(['vis_1', 'vis_2', 'vis_3']))
+  // const [partOrder, setPartOrder] = useState(generate_order(['vis_1', 'vis_2', 'vis_3']))
+  const [partOrder, setPartOrder] = useState(['vis_1', 'vis_2', 'vis_3'])
+
   const [partInd, setPartInd] = useState(0)
 
   const [imageOrder, setImageOrder] = useState(generate_order(['AP_i0', 'AP_i1', 'AP_i2', 'AP_i3', 'PA_i0', 'PA_i1', 'PA_i2', 'PA_i3', 'OB_i0', 'OB_i1', 'OB_i2', 'OB_i3']))
